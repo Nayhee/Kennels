@@ -1,7 +1,11 @@
 import React from "react";
+import { Checkbox } from "./Checkbox"
 
 export const Home = () => (
     <>
+        <label><big>Are you a Filmore?</big></label>
+        <Checkbox />
+        
         <h2>Nashville Kennels</h2>
         <small>Loving care when you're not there.</small>
 
