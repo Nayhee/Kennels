@@ -16,3 +16,5 @@ root.render(
     </Router>
   </StrictMode>
 );
+
+//strict mode is trying to help with error handling she said. 

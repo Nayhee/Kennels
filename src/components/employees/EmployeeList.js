@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { EmployeeCard } from './Employees';
 import { getAllEmployees, deleteEmployee } from '../../modules/EmployeeManager';
+import { useNavigate } from 'react-router-dom';
 
 export const EmployeeList = () => {
     //set initial state to empty
     const [employees, setEmployees] = useState([]);
+
+    const navigate = useNavigate();
 
     //function that gets the data from API and SETS the new state of Customers
     const getEmployees = () => {
@@ -28,6 +31,15 @@ export const EmployeeList = () => {
     }, [])
 
     return (
+        <>
+        <section className="section-content">
+            <button type="button"
+                className="btn"
+                onClick={() => {navigate("/employees/create")}}>
+                Add Employee
+            </button>
+        </section>
+
         <div className='container-cards'>
             {employees.map(employee => 
                 <EmployeeCard 
@@ -35,6 +47,8 @@ export const EmployeeList = () => {
                 employee={employee}
                 handleDeleteEmployee={handleDeleteEmployee}/>)}
         </div>
+        
+        </>
     );
 
 }

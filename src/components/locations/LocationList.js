@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { LocationCard } from './Locations';
-import { getAllLocations, deleteLocation } from '../../modules/LocationManager';
+import { getAllLocations, deleteLocation, addLocation } from '../../modules/LocationManager';
+import { useNavigate } from 'react-router-dom';
 
 export const LocationList = () => {
     //set initial state to empty
     const [locations, setLocations] = useState([]);
+
+    const navigate = useNavigate();
 
     //function that gets the data from API and SETS the new state of Customers
     const getLocations = () => {
@@ -27,12 +30,22 @@ export const LocationList = () => {
     }, [])
 
     return (
-        <div className='container-cards'>
-            {locations.map(location => 
-                <LocationCard
-                    key={location.id}
-                    location={location}
-                    handleDeleteLocation={handleDeleteLocation} />)}
-        </div>
+        <>
+            <section className="section-content">
+                <button type="button"
+                    className="btn"
+                    onClick={() => {navigate("/locations/create")}}>
+                    Add Location
+                    </button>
+            </section>
+            
+            <div className='container-cards'>
+                {locations.map(location => 
+                    <LocationCard
+                        key={location.id}
+                        location={location}
+                        handleDeleteLocation={handleDeleteLocation} />)}
+            </div>
+        </>
     );
 }
