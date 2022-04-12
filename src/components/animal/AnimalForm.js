@@ -11,7 +11,8 @@ export const AnimalForm = () => {
 			name: "",
 			breed: "",
 			locationId: 0,
-			customerId: 0
+			customerId: 0,
+			date: ""
 	});
 
 	const [isLoading, setIsLoading] = useState(true); //initially disable until Locations and Customers load. 
@@ -52,7 +53,7 @@ export const AnimalForm = () => {
 	const handleClickSaveAnimal = (event) => {
 		event.preventDefault() //Prevents the browser from submitting the form
 
-		if(animal.name !== "" && animal.breed !== "" && animal.locationId !== 0 && animal.customerId !==0) {
+		if(animal.name !== "" && animal.breed !== "" && animal.locationId !== 0 && animal.customerId !==0 && animal.date !== "") {
 			setIsLoading(true);
 			addAnimal(animal)
 			.then(() => navigate("/animals"))
@@ -62,9 +63,26 @@ export const AnimalForm = () => {
 		}
 	}
 
+	// const dateAdmitted = () => {
+	// 	let currentDate = new Date();
+	// 	let cDay = currentDate.getDate();
+	// 	let cMonth = currentDate.getMonth() + 1;
+	// 	let cYear = currentDate.getFullYear()
+	// 	return `${cDay}-${cMonth}-${cYear}`
+	// }
+
 	return (
 		<form className="animalForm">
 			<h2 className="animalForm__title">New Animal</h2>
+			
+			<fieldset>
+				<div className="form-group">
+					<label htmlFor="date">Date Admitted:</label>
+					<input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Date Admitted" value= {animal.date} />
+				</div>
+			</fieldset>
+
+
 			<fieldset>
 				<div className="form-group">
 					<label htmlFor="name">Animal name:</label>

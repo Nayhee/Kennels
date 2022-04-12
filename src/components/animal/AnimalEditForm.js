@@ -6,7 +6,7 @@ import { getAllCustomers } from "../../modules/CustomerManager";
 import "./AnimalForm.css"
 
 export const AnimalEditForm = () => {
-  const [animal, setAnimal] = useState({ name: "", breed: "" });
+  const [animal, setAnimal] = useState({ name: "", breed: ""});
   const [isLoading, setIsLoading] = useState(false);
   const [locations, setLocations] = useState([]);
   const [customers, setCustomers] = useState([]);
@@ -29,6 +29,7 @@ export const AnimalEditForm = () => {
       id: animalId,
       name: animal.name,
       breed: animal.breed,
+      date: animal.date,
       locationId: animal.locationId,
       customerId: animal.customerId
     };
@@ -73,20 +74,34 @@ export const AnimalEditForm = () => {
               value={animal.name}
             />
             <label htmlFor="name">Animal name</label>
-            </div>
-            </fieldset>
-            <fieldset>
-            <div className="formgrid">
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="breed"
-              value={animal.breed}
-            />
-            <label htmlFor="breed">Breed</label>
           </div>
+        </fieldset>
+            <fieldset>
+              <div className="formgrid">
+                <input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={handleFieldChange}
+                  id="breed"
+                  value={animal.breed}
+                />
+                <label htmlFor="breed">Breed</label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <div className="formgrid">
+                <input
+                  type="date"
+                  required
+                  className="form-control"
+                  onChange={handleFieldChange}
+                  id="date"
+                  value={animal.date}
+                />
+                <label htmlFor="date">Date Admitted:</label>
+              </div>
             </fieldset>
 
             <fieldset>

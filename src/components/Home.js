@@ -20,7 +20,7 @@ export const Home = () => {
         <br />
         500 Puppy Way
       </address>
-      <h1>Animal Spotlight</h1>
+      <h1 className="headeryo">Animal Spotlight</h1>
       <button onClick={refreshSpotlightAnimal}>Reload &#x27f3;</button>
       {
         spotlightId && <AnimalSpotlight animalId={spotlightId} />

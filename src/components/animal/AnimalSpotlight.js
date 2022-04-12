@@ -13,7 +13,8 @@ export const AnimalSpotlight = ({animalId}) => {
 
     return (
         <div className="animal-spotlight">
-            <h3>{animal.name}</h3>
+            <img src={animal.image} alt="myDog"/> <br/>
+        <h3>{animal.name}</h3><br/>
             <p>{animal.breed}</p>
         </div>
     )
