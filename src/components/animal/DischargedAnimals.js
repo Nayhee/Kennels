@@ -8,8 +8,6 @@ import { DischargedAnimalCard } from './DischargedAnimalCard';
 export const DischargedAnimals = () => {
   const [dischargedAnimals, setDischargedAnimals] = useState([]); //initial state is an Empty Array
 
-  const navigate = useNavigate();
-
   const getAnimals = () => {
     return getDischargedAnimals().then(animals => {
       setDischargedAnimals(animals) //Update state with the SetAnimals function once data comes back from API.
