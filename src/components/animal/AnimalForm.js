@@ -12,7 +12,8 @@ export const AnimalForm = () => {
 			breed: "",
 			locationId: 0,
 			customerId: 0,
-			date: ""
+			date: '',
+			isDischarged: false
 	});
 
 	const [isLoading, setIsLoading] = useState(true); //initially disable until Locations and Customers load. 
@@ -63,14 +64,6 @@ export const AnimalForm = () => {
 		}
 	}
 
-	// const dateAdmitted = () => {
-	// 	let currentDate = new Date();
-	// 	let cDay = currentDate.getDate();
-	// 	let cMonth = currentDate.getMonth() + 1;
-	// 	let cYear = currentDate.getFullYear()
-	// 	return `${cDay}-${cMonth}-${cYear}`
-	// }
-
 	return (
 		<form className="animalForm">
 			<h2 className="animalForm__title">New Animal</h2>
@@ -78,7 +71,7 @@ export const AnimalForm = () => {
 			<fieldset>
 				<div className="form-group">
 					<label htmlFor="date">Date Admitted:</label>
-					<input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Date Admitted" value= {animal.date} />
+					<input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Date Admitted" value={animal.date} />
 				</div>
 			</fieldset>
 

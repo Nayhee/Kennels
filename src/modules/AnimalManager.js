@@ -40,9 +40,20 @@ export const updateAnimal  = (editedAnimal) => {
 export const getRandomId = () => {
   return fetch(`${remoteURL}/animals`)
     .then(result => result.json())
-    .then(animals => {
-      const randomIndex = Math.floor(Math.random() * animals.length);
-      const randomAnimal = animals[randomIndex];
+    .then(animals => animals.filter(animal => animal.isDischarged !== "true"))
+    .then(activeAnimals => {
+      const randomIndex = Math.floor(Math.random() * activeAnimals.length);
+      const randomAnimal = activeAnimals[randomIndex];
       return randomAnimal.id;
   });
+}
+
+export const getAllActiveAnimals = () => {
+  return fetch(`${remoteURL}/animals?isDischarged=false&_sort=date&_order=asc`)
+  .then(res => res.json())
+}
+
+export const getDischargedAnimals = () => {
+  return fetch(`${remoteURL}/animals?isDischarged=true&_sort=dischargedDate&_order=asc`)
+  .then(dischargedAnimals => dischargedAnimals.json())
 }

@@ -46,7 +46,7 @@ export const AnimalEditForm = () => {
         setAnimal(animal);
         setIsLoading(false);
       });
-  }, []);
+  }, [animalId]);
 
   useEffect(() => {
     getAllLocations()
@@ -94,6 +94,7 @@ export const AnimalEditForm = () => {
               <div className="formgrid">
                 <input
                   type="date"
+                  readOnly
                   required
                   className="form-control"
                   onChange={handleFieldChange}
@@ -103,6 +104,7 @@ export const AnimalEditForm = () => {
                 <label htmlFor="date">Date Admitted:</label>
               </div>
             </fieldset>
+
 
             <fieldset>
                 <div className="form-group">

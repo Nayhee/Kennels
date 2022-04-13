@@ -17,6 +17,8 @@ import { AnimalEditForm } from "./animal/AnimalEditForm"
 import { CustomerEditForm } from "./customers/CustomerEditForm"
 import { EmployeeEditForm } from "./employees/EmployeeEditForm"
 import { LocationEditForm } from "./locations/LocationEditForm"
+import { DischargedAnimals } from "./animal/DischargedAnimals"
+import { DischargedAnimalEditForm } from "./animal/DischargedAnimalEditForm"
 
 //we define how the app will respond when the URL matches each of these patterns.
 //when a user clicks on the hyperlinks in the nav bar, this code dictates which component should render. 
@@ -51,6 +53,16 @@ export const ApplicationViews = ({isAuthenticated, setIsAuthenticated}) => {
                 <Route path="/animals/:animalId/edit" element={
                     <PrivateRoute>
                         <AnimalEditForm />
+                        </PrivateRoute>
+                } />
+                <Route path="/animals/discharged" element={
+                    <PrivateRoute>
+                        <DischargedAnimals />
+                        </PrivateRoute>
+                } />
+                <Route path="/animals/discharged/:animalId/edit" element={
+                    <PrivateRoute>
+                        <DischargedAnimalEditForm />
                         </PrivateRoute>
                 } />
 
