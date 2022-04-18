@@ -65,7 +65,6 @@ export const AnimalList = () => {
   }, []); 
 
 
-
   return (
     <>
       <section className="section-content">
